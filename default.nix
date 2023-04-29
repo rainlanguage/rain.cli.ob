@@ -18,6 +18,7 @@ pkgs.mkShell {
     pkgs.pkgconfig
     pkgs.openssl
     pkgs.iconv
+    pkgs.graphql-client
   ];
 
   shellHook = ''
