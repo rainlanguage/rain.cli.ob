@@ -1,4 +1,4 @@
-query Orders {
+query OrdersQuery {
   orders(
     where: {orderActive: true}
   ) {

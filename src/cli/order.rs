@@ -5,6 +5,6 @@ pub const ABOUT: &str = "Interact with an order(s) onchain.";
 
 pub async fn ls(_matches: &ArgMatches) -> anyhow::Result<()> {
     tracing::info!("foo");
-    crate::subgraph::orders::query();
+    crate::subgraph::orders::query().await?;
     Ok(())
 }
