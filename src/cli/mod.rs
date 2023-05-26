@@ -17,9 +17,14 @@ pub async fn dispatch(matches: &ArgMatches) -> anyhow::Result<()> {
 pub async fn main() -> Result<()> {
     tracing::subscriber::set_global_default(tracing_subscriber::fmt::Subscriber::new())?;
 
-    let matches = command!()
-        .subcommand(Command::new(order::NAME).about(order::ABOUT))
-        .get_matches();
+    let root_command = command!();
+    let ob_command = Command::new("orderbook").about("orderbook stuff");
+    let order_command = Command::new(order::NAME).about(order::ABOUT);
+
+    ob_command.subcommand(order_command);
+    root_command.subcommand(ob_command);
+
+    let matches = order_command.get_matches();
 
     dispatch(&matches).await
 }
