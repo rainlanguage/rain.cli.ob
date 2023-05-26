@@ -9,8 +9,6 @@ use once_cell::sync::Lazy;
 static BASE_URL: Lazy<Url> =
     Lazy::new(|| Url::parse("https://api.thegraph.com/subgraphs/name/siddharth2207/rainorderbook").unwrap());
 
-    static PAGE_SIZE: i64 = 500;
-
 #[derive(GraphQLQuery)]
 #[graphql(
     schema_path = "src/subgraph/orders/orders.schema.json",
