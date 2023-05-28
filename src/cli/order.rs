@@ -1,10 +1,13 @@
-use clap::ArgMatches;
+use clap::{Subcommand};
 
-pub const NAME: &str = "order";
-pub const ABOUT: &str = "Interact with an order(s) onchain.";
+#[derive(Subcommand)]
+#[command(about = "Interact with an order(s) onchain and offchain.")]
+pub enum Order {
+    #[command(about = "List all orders from the subgraph.")]
+    Ls
+}
 
-pub async fn ls(_matches: &ArgMatches) -> anyhow::Result<()> {
-    tracing::info!("foo");
+pub async fn ls() -> anyhow::Result<()> {
     crate::subgraph::orders::query().await?;
     Ok(())
 }
