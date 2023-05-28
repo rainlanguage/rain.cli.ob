@@ -1,9 +1,10 @@
 [package]
-name = "rain-ob"
-version = "0.2.0"
+name = "rain_cli_ob"
+version = "0.0.2"
 edition = "2021"
 license = "CAL-1.0"
 description = "Rain orderbook CLI."
+homepage = "https://github.com/rainprotocol/rain.cli.ob"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
